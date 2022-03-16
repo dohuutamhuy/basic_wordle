@@ -1,0 +1,35 @@
+.root {
+  position: relative;
+  text-align: center;
+}
+
+.word-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col {
+  font-size: 2.2rem;
+  border: 2px solid black;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.7rem;
+}
+
+.spacing {
+  height: 22rem;
+}
+
+
+/* Color changes */
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.grey {
+  background-color: grey;
+}
