@@ -104,9 +104,16 @@ class Controller {
       this.lines[this.currentLine][i].turnGreen();
     }
 
-    this.setStatus("Win! F5 please!");
+    this.setStatusNoTimeout("Win! F5 please!");
   }
 
+  playerLose() {
+    this.setStatusNoTimeout("You lose! The answer is " + this.answer);
+  }
+
+  setStatusNoTimeout(status) {
+    $(".status-bar").text(status);
+  }
 
   setStatus(status) {
     $(".status-bar").text(status);
@@ -121,7 +128,6 @@ class Controller {
     if (word.length < Controller.MAX_CELL) {
       // send warning not a 5-char word yet
       this.setStatus("Not a " + Controller.MAX_CELL + "-character word yet!");
-
     } else if (word.length == Controller.MAX_CELL) {
       // Verify the words
       if (!WORDS.includes(word)) {
@@ -170,8 +176,13 @@ class Controller {
         }
       }
 
-      this.currentLine++;
-      this.currentCol = 0;
+      if (this.currentLine < Controller.MAX_LINE - 1) {
+        this.currentLine++;
+        this.currentCol = 0;
+      } else {
+        this.playerLose();
+      }
+
 
     } else {
       // This case should not happen
