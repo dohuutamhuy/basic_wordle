@@ -1,5 +1,5 @@
 
-.root {
+body {
   position: relative;
   text-align: center;
 }
@@ -12,12 +12,16 @@
 }
 
 .my-col {
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   font-weight: bold;
   border-color: black;
   width: 4.7rem;
   height: 4.7rem;
   border-radius: 0.7rem;
+}
+
+.status-bar {
+  font-weight: bold;
 }
 
 .status-box {
@@ -26,6 +30,7 @@
 
 .spacing {
   height: 22rem;
+  width: auto;
 }
 
 
