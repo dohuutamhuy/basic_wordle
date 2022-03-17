@@ -65,7 +65,7 @@ class Controller {
       let line = [];
       for(let col = 1; col <= Controller.MAX_CELL; col++) {
         let lineClass = ".row" + row;
-        let colClass = ".col" + col;
+        let colClass = ".my-col" + col;
         let box = new InputBox($(lineClass + " > " + colClass), row, col);
         box.setText("");
         line.push(box);
@@ -102,7 +102,7 @@ class Controller {
     // do something here
     for (let i = 0; i < Controller.MAX_CELL; i++) {
       this.lines[this.currentLine][i].turnGreen();
-    }
+     }
 
     this.setStatusNoTimeout("Win! F5 please!");
   }
@@ -127,12 +127,12 @@ class Controller {
     word = word.toLowerCase();
     if (word.length < Controller.MAX_CELL) {
       // send warning not a 5-char word yet
-      this.setStatus("Not a " + Controller.MAX_CELL + "-character word yet!");
+      this.setStatus("Not enought letter!");
     } else if (word.length == Controller.MAX_CELL) {
       // Verify the words
       if (!WORDS.includes(word)) {
         // Not a real word
-        this.setStatus("Not a real word!");
+        this.setStatus("Word not found!");
         return;
       }
       if (word == this.answer) {
