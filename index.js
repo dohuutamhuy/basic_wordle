@@ -50,6 +50,7 @@ class Controller {
     this.currentLine = 0;
     this.currentCol = 0;
     this.answer = this.pickARandomWord();
+    this.gameState = 1; // 1 for running, 0 for pause
     this.setupKeyPress();
   }
 
@@ -190,16 +191,26 @@ class Controller {
     }
   }
 
+  // I gatekeep the input with game state,
+  // I can also gate keep inside each action function, but I'm lazy
+  
   setupKeyPress() {
     var self = this;
     $(document).keydown((event) => {
       switch(event.which) {
         case 8:
         // backspace
+          if (this.gameState == 0) {
+            break;
+          }
           self.deleteCurrentWord();
           break;
         case 13:
-        // enter
+        // Enter
+          if (this.gameState == 0) {
+            break;
+          }
+          event.preventDefault();
           self.userSendConfirm(self.getWordFromCurLine());
           break;
         default:
@@ -208,6 +219,9 @@ class Controller {
     });
 
     $(document).keypress((event) => {
+      if (this.gameState == 0) {
+        return;
+      }
       // check for enter and backspace
       let key = event.key.toUpperCase();
       if (key >= 'A' && key <= 'Z' && key.length == 1) {
@@ -215,13 +229,19 @@ class Controller {
       }
     });
   }
-
-
 }
 
 
 function main() {
   let controller = new Controller();
+  // setup game pause during instruction
+  let modal = $("#instruction-modal");
+  modal.on('show.bs.modal', () => {
+    controller.gameState = 0;
+  });
+  modal.on('hidden.bs.modal', () => {
+    controller.gameState = 1;
+  });
 }
 
 main();
