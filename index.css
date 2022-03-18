@@ -3,6 +3,13 @@ body {
   position: relative;
   text-align: center;
 }
+.status-bar {
+  font-weight: bold;
+}
+
+.status-box {
+  height: 8rem;
+}
 
 #word-table {
   margin-left: auto;
@@ -20,24 +27,7 @@ body {
   border-radius: 0.7rem;
 }
 
-.status-bar {
-  font-weight: bold;
-}
-
-.status-box {
-  height: 8rem;
-}
-
-.spacing {
-  height: 22rem;
-  width: auto;
-}
-
-
 /* Color changes */
-.green {
-  background-color: green !important;
-}
 
 .yellow {
   background-color: yellow !important;
@@ -53,4 +43,27 @@ body {
 
 .navy {
   background-color: #062664;
+}
+
+/* Override bootstrap CSS */
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  background-color: #0d6efd !important;
+}
+
+.char {
+  width: 40px;
+  height: 58px;
+  outline: none;
+  box-shadow: none;
+}
+
+.backspace, .enter {
+  text-align: center;
+  width: 60px;
+  height: 58px;
+}
+
+.char:focus, .backspace:focus, .enter:focus {
+  outline: none;
+  box-shadow: none;
 }

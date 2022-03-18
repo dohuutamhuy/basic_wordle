@@ -52,6 +52,7 @@ class Controller {
     this.answer = this.pickARandomWord();
     this.gameState = 1; // 1 for running, 0 for pause
     this.setupKeyPress();
+    this.setupVirtualKeyboard();
   }
 
   // return a string
@@ -77,14 +78,14 @@ class Controller {
   }
 
 
-  deleteCurrentWord() {
+  deleteCurrentChar() {
     if (this.currentCol > 0) {
       this.currentCol--;
     }
     this.lines[this.currentLine][this.currentCol].setText("");
   }
 
-  setCurrentWord(word) {
+  setCurrentChar(word) {
     if (this.currentCol < Controller.MAX_CELL) {
       this.lines[this.currentLine][this.currentCol].setText(word);
       this.currentCol++;
@@ -193,7 +194,7 @@ class Controller {
 
   // I gatekeep the input with game state,
   // I can also gate keep inside each action function, but I'm lazy
-  
+
   setupKeyPress() {
     var self = this;
     $(document).keydown((event) => {
@@ -203,7 +204,7 @@ class Controller {
           if (this.gameState == 0) {
             break;
           }
-          self.deleteCurrentWord();
+          self.deleteCurrentChar();
           break;
         case 13:
         // Enter
@@ -225,10 +226,39 @@ class Controller {
       // check for enter and backspace
       let key = event.key.toUpperCase();
       if (key >= 'A' && key <= 'Z' && key.length == 1) {
-        self.setCurrentWord(key);
+        self.setCurrentChar(key);
       }
     });
   }
+
+
+  setupVirtualKeyboard() {
+    var self = this;
+    // setup each character button
+    $(".char").click((event) => {
+      if (this.gameState == 0) {
+        return;
+      }
+      self.setCurrentChar($(event.currentTarget).html());
+    });
+
+    // setup enter button
+    $(".enter").click((event) => {
+      if (this.gameState == 0) {
+        return;
+      }
+      self.userSendConfirm(self.getWordFromCurLine());
+    });
+
+    // setup backspace button
+    $(".backspace").click((event) => {
+      if (this.gameState == 0) {
+        return;
+      }
+      self.deleteCurrentChar();
+    });
+  }
+
 }
 
 
