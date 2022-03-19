@@ -54,28 +54,14 @@ body {
 }
 
 .char {
-  width: 50px;
+  width: calc(100vw * (1/11));
   height: 68px;
 }
 
 .backspace, .enter {
   text-align: center;
-  width: 70px;
+  width: calc(100vw * (1/10));
   height: 68px;
-}
-
-@media (max-width: 768px) {
-  .char {
-    width: 60px;
-    height: 78px;
-  }
-
-  .backspace, .enter {
-    text-align: center;
-    width: 80px;
-    height: 78px;
-  }
-
 }
 
 .char:focus, .backspace:focus, .enter:focus {
