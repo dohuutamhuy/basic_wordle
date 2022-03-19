@@ -22,8 +22,8 @@ body {
   font-size: 2.2rem;
   font-weight: bold;
   border-color: black;
-  width: 4.7rem;
-  height: 4.7rem;
+  width: 75px;
+  height: 75px;
   border-radius: 0.7rem;
 }
 
@@ -54,16 +54,28 @@ body {
 }
 
 .char {
-  width: 40px;
-  height: 58px;
-  outline: none;
-  box-shadow: none;
+  width: 50px;
+  height: 68px;
 }
 
 .backspace, .enter {
   text-align: center;
-  width: 60px;
-  height: 58px;
+  width: 70px;
+  height: 68px;
+}
+
+@media (max-width: 768px) {
+  .char {
+    width: 60px;
+    height: 78px;
+  }
+
+  .backspace, .enter {
+    text-align: center;
+    width: 80px;
+    height: 78px;
+  }
+
 }
 
 .char:focus, .backspace:focus, .enter:focus {
