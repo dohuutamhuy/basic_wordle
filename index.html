@@ -13,38 +13,34 @@
 
 <body class="teal">
   <section class="nav-bar-section row">
-    <div class="col-12">
-      <nav class="navbar navbar-expand-lg border-bottom border-dark border-2">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-floating shadow-none" data-bs-toggle="modal" data-bs-target="#instruction-modal">
-            <i class="fa-solid fa-circle-info"></i>
-          </button>
-          <h4 class="modal-title position-absolute start-50 translate-middle-x"> <strong>Wordle</strong></h4>
-          <!-- Modal -->
-          <div class="modal fade" id="instruction-modal" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content teal">
-                <div class="modal-header position-relative">
-                  <h4 class="modal-title position-absolute start-50 translate-middle-x">How to play</h4>
-                  <button type="button" class="btn-close ms-auto pt-4 pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Guess the word in 6 tries. After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
-                  <hr>
-                  <p>Green - correct character and correct position</p>
-                  <p>Yellow - correct character but wrong position (doesn't specify the character counts)</p>
-                  <p>Grey - incorrect character</p>
-                  <hr>
-                  <p>Press A-Z keys for inputs</p>
-                  <p>Enter to submit input</p>
-                  <p>Backspace to delete current character</p>
-                </div>
-              </div>
+    <nav class="navbar navbar-expand-lg border-bottom border-dark border-2">
+      <button type="button" class="btn btn-floating shadow-none" data-bs-toggle="modal" data-bs-target="#instruction-modal">
+        <i class="fa-solid fa-circle-info"></i>
+      </button>
+      <h4 class="modal-title position-absolute start-50 translate-middle-x"> <strong>Wordle</strong></h4>
+      <!-- Modal -->
+      <div class="modal fade" id="instruction-modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content teal">
+            <div class="modal-header position-relative">
+              <h4 class="modal-title position-absolute start-50 translate-middle-x">How to play</h4>
+              <button type="button" class="btn-close ms-auto pt-4 pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Guess the word in 6 tries. After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+              <hr>
+              <p>Green - correct character and correct position</p>
+              <p>Yellow - correct character but wrong position (doesn't specify the character counts)</p>
+              <p>Grey - incorrect character</p>
+              <hr>
+              <p>Press A-Z keys for inputs</p>
+              <p>Enter to submit input</p>
+              <p>Backspace to delete current character</p>
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </section>
 
   <div class="justify-content-center status-box row">
@@ -53,7 +49,7 @@
 
   <!-- Words table section-->
   <section class="words-table-section row">
-    <div class="col-12">
+
       <table class="table" id="word-table">
         <tbody>
           <tr class="row1">
@@ -100,14 +96,14 @@
           </tr>
         </tbody>
       </table>
-    </div>
+
   </section>
 
   <!-- <div class="spacing"></div> -->
 
   <section class="keyboard-section mt-5 pt-5 row">
     <!-- <h1>list of keyboard *TODO*</h1> -->
-    <div class="container-fluid ms-auto me-auto col-12">
+    <div class="container-fluid ms-auto me-auto">
         <table class="table">
           <tbody>
             <tr>
