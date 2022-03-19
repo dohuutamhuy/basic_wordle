@@ -37,6 +37,15 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .my-col {
+    font-size: calc(100vw * 1/17);
+    width: calc(100vw * 1/7);
+    height: calc(100vw * 1/7);
+    border-radius: 0.7rem;
+  }
+}
+
 /* Color changes */
 .green {
   background-color: green !important;
@@ -72,6 +81,14 @@ body {
   text-align: center;
   width: calc(100vw * (1/7));
   height: 68px;
+}
+
+@media (max-width: 391px) {
+  .backspace, .enter {
+    text-align: center;
+    width: calc(100vw * (1/8));
+    height: 68px;
+  }
 }
 
 .char:focus, .backspace:focus, .enter:focus {
